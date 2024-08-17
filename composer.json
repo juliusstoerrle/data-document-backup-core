@@ -1,0 +1,53 @@
+{
+  "name": "juliusstoerrle/data-document-backup-core",
+  "description": "Extensible PHP library to export domain data into a formatted document stored in a remote storage for backup purposes.",
+  "license": "MIT",
+  "suggest": {
+    "chrome-php/chrome": "Required to use Twig document generator",
+    "twig/twig": "Required to use Twig document generator",
+    "phpoffice/phpword": "Required to use WordTemplate document generator",
+    "league/flysystem-ftp": "Required to transfer files to remote location via FTP",
+    "league/flysystem-webdav": "Required to transfer files to remote location via WebDAV"
+  },
+  "require": {
+    "php": ">=8.2",
+    "juliusstoerrle/data-document-backup-contract": "@dev",
+    "psr/log": "^3.0",
+    "league/flysystem": "^3.23"
+  },
+  "require-dev": {
+    "ext-fileinfo": "*",
+    "pestphp/pest": "^2.28",
+    "league/flysystem-ftp": "^3.0",
+    "league/flysystem-webdav": "^3.21.0",
+    "twig/twig": "^3.8",
+    "chrome-php/chrome": "*",
+    "phpoffice/phpword": "^1.2",
+    "league/flysystem-memory": "^3.0",
+    "mockery/mockery": "^1.6",
+    "mpdf/mpdf": "^8.2"
+  },
+  "scripts": {
+    "test": "pest",
+    "test:coverage": "XDEBUG_MODE=coverage pest --coverage",
+    "test:without-chromium": "pest --exclude-group=requires-chromium"
+  },
+  "scripts-descriptions": {
+    "test": "Execute all functional and unit tests",
+    "test:coverage": "Same as test + code coverage report"
+  },
+  "autoload": {
+    "psr-4": {
+      "DataDocumentBackup\\": "src/"
+    }
+  },
+  "repositories": [{
+    "type": "path",
+    "url": "../contract"
+  }],
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}

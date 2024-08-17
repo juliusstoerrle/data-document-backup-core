@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.3/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <!-- Tests of individual code units without external dependencies (beyond filesystem) -->
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Integration">
+            <!-- Integration tests that test individual interactions with external components and end to end processing-->
+            <directory suffix="Test.php">./tests/Integration</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory suffix=".php">./src</directory>
+        </include>
+    </source>
+    <coverage pathCoverage="true">
+        <report>
+            <html outputDirectory="tests/.output/html-coverage" lowUpperBound="50" highLowerBound="90"/>
+            <text outputFile="tests/.output/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
+        </report>
+    </coverage>
+</phpunit>

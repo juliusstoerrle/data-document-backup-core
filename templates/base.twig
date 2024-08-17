@@ -1,0 +1,3 @@
+{% if _config.template %}
+    {{ include(template_from_string(_config.template)) }}
+{% endif %}
